@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const smallerNumbersThanCurrent = require('../src/simple/how-many-numbers-of-are-smaller-than-the-current-number');
+const smallerNumbersThanCurrent = require('../../src/simple/how-many-numbers-of-are-smaller-than-the-current-number');
 
 describe('', function () {
   it('[8, 1, 2, 2, 3] 对应比自己小的元素的结果 [4, 0, 1, 1, 3]', function () {

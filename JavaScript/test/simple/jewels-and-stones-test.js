@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const numJewelsInStones = require('../src/simple/jewels-and-stones');
+const numJewelsInStones = require('../../src/simple/jewels-and-stones');
 
 describe('统计子字符串的数量', function () {
   it('aAAbbbb 中包含一个 aA', function () {

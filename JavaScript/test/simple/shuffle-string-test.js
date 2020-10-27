@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const restoreString = require('../src/simple/shuffle-string');
+const restoreString = require('../../src/simple/shuffle-string');
 
 describe('根据规则对字符串重新排序', function () {
   it('codeleet 根据规则 [4,5,6,7,0,2,1,3] 应该得到 leetcode', function () {

@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const subtractProductAndSum = require('../src/simple/subtract-the-product-and-sum-of-digits-of-an-integer');
+const subtractProductAndSum = require('../../src/simple/subtract-the-product-and-sum-of-digits-of-an-integer');
 
 describe('整数各位之积与各位之和的差值', function () {
   it('对于 234 应该得到 15', function () {

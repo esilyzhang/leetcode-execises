@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const numberOfSteps = require('../src/simple/number-of-steps-to-reduce-a-number-to-zero');
+const numberOfSteps = require('../../src/simple/number-of-steps-to-reduce-a-number-to-zero');
 
 describe('非负整数迭代为零所需步数', function () {
   it('14 需要 6 步迭代', function () {
