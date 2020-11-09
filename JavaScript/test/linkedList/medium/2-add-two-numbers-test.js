@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const addTwoNumbers = require('../../src/medium/add-two-numbers');
+const addTwoNumbers = require('../../../src/linkedList/medium/2-add-two-numbers');
 
 describe('链表求和', function () {
   describe('测试 addTwoNumbers', function () {
@@ -10,23 +10,11 @@ describe('链表求和', function () {
         this.next = next === undefined ? null : next;
       }
       convertListNodes = function (arr) {
-        let nextNode, curNode, firstNode;
-        if (arr.length === 1) {
-          return new ListNode(arr[0], null);
+        let curNode = null;
+        for (let i = arr.length - 1; i >= 0; i--) {
+          curNode = new ListNode(arr[i], curNode);
         }
-        for (let i = 0; i < arr.length - 1; i++) {
-          if (i === 0) {
-            firstNode = new ListNode(arr[i], null);
-            curNode = firstNode;
-          } else {
-            curNode.val = arr[i];
-          }
-          nextNode = new ListNode(0, null);
-          curNode.next = nextNode;
-          curNode = nextNode;
-        }
-        curNode.val = arr[arr.length - 1];
-        return firstNode;
+        return curNode;
       };
     });
     it('[9,9,9,9,9,9,9], [9,9,9,9] 的和为 [8,9,9,9,0,0,0,1]', function () {
@@ -57,6 +45,14 @@ describe('链表求和', function () {
       const l2 = convertListNodes([0]);
 
       expect(addTwoNumbers(l1, l2)).to.deep.equal(convertListNodes([0]));
+    });
+    it('[2,4,9], [5,6,4,9] 的和为 [7,0,4,0,1]', function () {
+      const l1 = convertListNodes([2, 4, 9]);
+      const l2 = convertListNodes([5, 6, 4, 9]);
+
+      expect(addTwoNumbers(l1, l2)).to.deep.equal(
+        convertListNodes([7, 0, 4, 0, 1])
+      );
     });
     it('[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], [5, 6, 4] 的和为 [6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]', function () {
       const l1 = convertListNodes([
