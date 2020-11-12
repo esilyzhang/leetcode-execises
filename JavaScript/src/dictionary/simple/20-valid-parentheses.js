@@ -1,41 +1,25 @@
 /**
  * @param {string} s
  * @return {boolean}
- * @result Runtime: 80 ms, faster than 61.96% of JavaScript online submissions for Valid Parentheses.
- * Memory Usage: 38.3 MB, less than 5.65% of JavaScript online submissions for Valid Parentheses.
  * @todo 奇数字符串肯定为不合法
  */
 var isValid = function (s) {
   let parentheses = [];
+  const map = new Map();
+  map.set('(', ')');
+  map.set('[', ']');
+  map.set('{', '}');
   for (let i = 0; i < s.length; i++) {
-    switch (s.charAt(i)) {
-      case '(':
-        parentheses.push('(');
-        continue;
-      case ')':
-        if ('(' !== parentheses[parentheses.length - 1]) {
-          return false;
-        }
+    let curC = s.charAt(i);
+    if (map.has(curC)) {
+      parentheses.push(curC);
+    } else {
+      let stackTop = parentheses[parentheses.length - 1];
+      if (map.get(stackTop) === curC) {
         parentheses.pop();
-        continue;
-      case '[':
-        parentheses.push('[');
-        continue;
-      case ']':
-        if ('[' !== parentheses[parentheses.length - 1]) {
-          return false;
-        }
-        parentheses.pop();
-        continue;
-      case '{':
-        parentheses.push('{');
-        continue;
-      case '}':
-        if ('{' !== parentheses[parentheses.length - 1]) {
-          return false;
-        }
-        parentheses.pop();
-        continue;
+      } else {
+        return false;
+      }
     }
   }
   if (parentheses.length) {
@@ -43,4 +27,7 @@ var isValid = function (s) {
   }
   return true;
 };
+//--------------------------------
+// 1. 遍历字符串
+// 2.
 module.exports = isValid;
